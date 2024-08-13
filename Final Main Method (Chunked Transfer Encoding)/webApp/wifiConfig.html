@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure Wifi</title>
+
+    <link rel="icon" href="./images/settings.png" type="image/icon type">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px; /* Add some padding to the body */
+            background-color: black; /* Set background color to black */
+            color: white; /* Set text color to white */
+            font-family: Arial, sans-serif; /* Use Arial font */
+        }
+    
+        .container {
+            max-width: 600px; /* Set max width for the container */
+            margin: 0 auto; /* Center the container */
+        }
+    
+        .field {
+            margin-bottom: 20px; /* Add some space between fields */
+        }
+    
+        label {
+            display: block; /* Display labels as block elements */
+            margin-bottom: 5px; /* Add some space below labels */
+        }
+    
+        input[type="text"], input[type="button"], input[type="submit"] {
+            width: 100%; /* Make text fields and buttons full width */
+            padding: 8px; /* Add padding to text fields and buttons */
+            border: 1px solid #ccc; /* Add a border to text fields and buttons */
+            border-radius: 5px; /* Add border radius */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+    
+        .button, .submit {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    
+        .button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+    
+    </style>
+
+</head>
+
+<body>
+    
+
+    <div class="container">
+        <form>
+            
+            <div class="field">
+                <label for="devPass">
+                    Wifi Password must be <br>
+                    1. only alpha-numeric <br>
+                    2. At least 8 characters long
+                </label>
+                <input type="text" id="devPass" name="devPass" placeholder="Enter password" required>
+            </div>
+
+            
+            <div class="field">
+                <input type="button" class="button" id="Save_configuration" value="Save configuration">
+            </div>
+        
+        </form>
+    
+    </div>
+
+
+    <script>
+        var devPass = "password";
+
+        document.getElementById("Save_configuration")
+            .addEventListener("click", function() {
+                var userpass = document.getElementById("devPass").value.trim();
+                let strRegex = new RegExp(/^[a-z0-9]+$/i);
+                const isalphaNumeric = strRegex.test(userpass.toLowerCase()); 
+                
+                if ((userpass.length >= 8) && isalphaNumeric){
+                    const getParam = "/pass?" + userpass + "&";
+
+                    const xhttpSaveConfig = new XMLHttpRequest();
+                    xhttpSaveConfig.onreadystatechange = function() {
+                        if(this.readyState == 4 && this.status == 200){
+                            alert("new password = '" + this.responseText + "'\n\nTo be used during next start-up");
+                            location.href = "./index.html";
+                        }
+                    };      
+                    console.log("http://192.168.137.1" + getParam);
+                    xhttpSaveConfig.open('GET', "http://192.168.137.1" + getParam, true);
+                    xhttpSaveConfig.send();
+
+                } 
+                else{
+                    alert("Invalid password");
+                }
+            });
+    </script>
+
+</body>
+
+</html>

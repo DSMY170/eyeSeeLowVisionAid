@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EyeSee</title>
+    <link rel="icon" href="./images/titleLogo.png" type="image/icon type">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+
+
+<body>
+
+    <!--Navbar code-->
+    <header> 
+        <nav>
+            <ul>
+                <!-- zooming icons -->
+                <li>
+                    <img src="./images/zoom-less.jpg" alt="zoom out" title="zoom out" onclick="ISPfunction(0)">
+                </li>
+    
+                <li>
+                    <img src="./images/zoom-more.jpg" alt="zoom in" title="zoom in" onclick="ISPfunction(1)">
+                </li>
+            
+            
+                <!-- brightness controls -->
+                <li>
+                    <img src="./images/brightness.jpg" alt="make brighter" title="make brighter" onclick="ISPfunction(2)">
+                </li>
+                
+                <li>
+                    <img src="./images/dim.jpg" alt="make dimmer" title="make dimmer" onclick="ISPfunction(3)">
+                </li>
+
+                <!-- contrast controls -->
+                <li>
+                    <img src="./images/hcontrast.jpeg" alt="increase contrast" title="increase contrast" onclick="ISPfunction(12)">
+                </li>
+                
+                <li>
+                    <img src="./images/lcontrast.jpeg" alt="decrease contrast" title="decrease contrast" onclick="ISPfunction(3)">
+                </li>
+            
+            </ul>
+
+
+            <ul>
+                <!-- text and background  controls -->
+                <li>
+                    <img src="./images/whiteOnblack.png" alt="white on black" title="white on black" onclick="ISPfunction(6)">
+                </li>
+
+                <li>
+                    <img src="./images/yellowonblue.png" alt="yellow on blue" title="yellow on blue" onclick="ISPfunction(8)">
+                </li>
+
+                <li>
+                    <img src="./images/redongreen.png" alt="red on green" title="red on green" onclick="ISPfunction(9)">
+                </li>
+
+                <li>
+                    <img src="./images/yellowonblACK.png" alt="yellow on black" title="yellow on black" onclick="ISPfunction(10)">
+                </li>
+
+                <li>
+                    <img src="./images/BLACKoNWHITE.png" alt="Pal" title="Pal" onclick="ISPfunction(7)">
+                </li>
+            </ul>
+
+
+            <ul>
+                <!-- video  controls -->
+                <li>
+                    <img src="./images/play.jpg" alt="play" title="play" onclick="ISPfunction(4)">
+                </li>
+
+                <li>
+                    <img src="./images/pause.jpg" alt="pause" title="pause" onclick="ISPfunction(5)">
+                </li>
+
+            </ul>
+
+
+            <ul>
+                <!-- wifi  controls -->
+                <li>
+                    <img src="./images/WIFI.png" alt="wifi settings" title="wifi settings" onclick="ISPfunction(11)">
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    
+    <div>
+        <br><br>
+        <br><br>
+    </div>
+    
+     <br>
+
+
+    <section id="sect" ondblclick="toggleFull();">
+
+        <div>
+
+            <img id="img1" src="http://192.168.137.1/" crossorigin="anonymous"> 
+            <img id="img2">
+            <img id="img" alt="Video Stream">
+
+        </div>
+
+    </section>
+
+    
+    <script src="./index.js"></script>
+
+    <canvas id="canvas1" class="canvasHidden"></canvas>
+    <canvas id="canvas2" class="canvasHidden"></canvas>
+</body>
+
+
+</html>

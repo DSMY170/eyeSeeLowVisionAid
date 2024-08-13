@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: black;
+            color: bisque;
+            text-align: center;
+            align-items: center;
+        }
+
+
+    </style>
+    <title>EyeSeeLVA</title>
+</head>
+
+<body>
+    <h1><u>Image display</u></h1>
+    <br>
+
+    <div>
+        <img src="./receive.jpg" id="image">
+    </div>
+
+</body>
+
+<script>
+    let frames = 30;
+    setInterval(reload, 1000 /(2 * frames));
+
+    function reload(){
+        img.setAttribute("src","./receive.jpg")
+    }
+</script>
+
+</html>
