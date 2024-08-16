@@ -5,7 +5,7 @@
     ***************************** 
         Do this once
     *****************************
--- Follow this tutorial to install XANNP 
+-- Follow this tutorial (https://youtu.be/VCHXCusltqI?feature=shared) to install XANNP 
 -- Copy the folder named "webApp" from the same directory as this readme.txt file
 -- Navigate to XAMMP directory (c:\xampp\  -- for Windows) and paste the "webApp" folder into the "htdocs" folder
 
